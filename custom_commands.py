@@ -4,7 +4,11 @@
 # Copyright (c) 2012-2019 Snowflake Computing Inc. All right reserved.
 #
 
-from collections.abc import Sequence
+# from collections.abc import Sequence
+try:  # works in Python >= 3.3
+    from collections.abc import Sequence
+except ImportError:  # Python <= 3.2 including Python 2
+    from collections import Sequence
 from sqlalchemy import true, false
 from sqlalchemy.sql.dml import UpdateBase
 from sqlalchemy.util.compat import string_types
